@@ -4,6 +4,9 @@ import easyocr
 import cv2
 import re
 
+# image path
+image_path = 'd.jpg'
+
 def read_text_from_image(image_path):
     # EasyOCR 객체 생성
     reader = easyocr.Reader(['en', 'ko'])
@@ -127,7 +130,7 @@ def pridict(image_data, error_range=100000, won2cent=0.078, cent2won=1283.44):
     print(data)
 
     # 학습된 모델 불러오기
-    regressor = joblib.load('data/laptop_regression_model.pkl')
+    regressor = joblib.load('laptop_regression_model.pkl')
 
     # 예측
     pridicted_price = int(regressor.predict(pd.DataFrame(data))[0])
@@ -146,5 +149,5 @@ def pridict(image_data, error_range=100000, won2cent=0.078, cent2won=1283.44):
     else:
         print('not buy')
 
-image_data = read_text_from_image('d.jpg')
+image_data = read_text_from_image(image_path)
 pridict(image_data)
