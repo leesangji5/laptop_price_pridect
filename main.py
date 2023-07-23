@@ -7,6 +7,15 @@ import re
 # image path
 image_path = 'd.jpg'
 
+# processor_name i3, i5, i7, i9에서 숫자
+# processor_gnrtn 세대 
+# ram_gb 렘 용량
+# ram_type DDR3, DDR4, LPDDR4등 숫자
+# storage 저장공간 용량
+# os 윈도우 여부로 판단함 ex) 리눅스, macos여도 0으로 하고, 윈도우만, 1로 판단
+# 리눅스, macos는 기본적으로는 무료이기 때문에 유료인 윈도우만 1로 판단
+# graphic_card_gb 그래픽카드 vram
+
 def read_text_from_image(image_path):
     # EasyOCR 객체 생성
     reader = easyocr.Reader(['en', 'ko'])
