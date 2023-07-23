@@ -98,6 +98,7 @@ def read_text_from_image(image_path):
 
     return matches
 
+# 개발할 당시의 환율 2023/7/22
 def pridict(image_data, error_range=100000, won2cent=0.078, cent2won=1283.44):
 
     # 가격 (단위: 센트)
@@ -113,7 +114,8 @@ def pridict(image_data, error_range=100000, won2cent=0.078, cent2won=1283.44):
     elif output_money_lang == 'cent':
         money_weight = 1
 
-    # 정규식으로 숫자 추출
+    # price는 target이므로 data에서 제외
+    # os는 윈도우의 여부로 고려함
     data = dict()
     data['processor_name'] = [image_data['processor_name']]
     data['processor_gnrtn'] = [image_data['processor_gnrtn']]
